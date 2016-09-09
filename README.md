@@ -3,7 +3,7 @@
 * Redis is used as a reference, no other db can go faster than Redis
 * Download HBase 1.2.2, Accumulo 1.8, and Redis 3.2.3, Hadoop 2.7.3 and Zookeeper 3.4.9
 * Don't use HDFS, but file:///your/home/path/data
-* Accumulo needs zookeeper and hadoop jars, but you can use zookeeper of HBase standalone
+* Accumulo needs zookeeper and hadoop jars and you can use zookeeper started by HBase standalone
 * YCSB runs on the same machine of the DB
 * Don't use splits
 * Compact before starting the random reads
@@ -82,7 +82,7 @@ config -t usertable -s table.bloom.enabled=true
 ```sh
 ./bin/ycsb load redis -s -P workloads/workloadc \
      -p "redis.host=127.0.0.1" \
-     -p "redis.port=6380" \
+     -p "redis.port=6379" \
      -threads 4
 
 ./bin/ycsb run redis -s -P workloads/workloadc \
